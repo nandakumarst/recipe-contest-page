@@ -1,8 +1,4 @@
-import React, { useState } from "react";
-
-const App = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [recipes, setRecipes] = useState([
+const recipes = [
     {
       name: 'Creamy Tomato Pasta',
       chef: 'Chef Antonio',
@@ -212,36 +208,7 @@ const App = () => {
         featured: false,
         description: 'Soft-baked cookies made with vegan chocolate chips and a hint of vanilla.',
         imgUrl: 'https://images.unsplash.com/photo-1609857570980-1b6eea7b3af3?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VmVnYW4lMjBDaG9jb2xhdGUlMjBDaGlwJTIwQ29va2llc3xlbnwwfHwwfHx8MA%3D%3D'
-      }
-  ])
-  const filteredRecipes = recipes.filter((recipe) =>
-    recipe.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-
-  return (
-    <div className="app-container">
-      <div className="a">
-      <h1>Recipe Contest Page</h1>
-      <input
-        type="text"
-        placeholder="Search recipes..."
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-      </div>
-      <div className="recipe-list">
-        {filteredRecipes.map((recipe, index) => (
-          <div key={index} className="recipe-card">
-            <img src={recipe.imgUrl}/>
-            <h3>{recipe.name}</h3>
-            <p>Chef: {recipe.chef}</p>
-            <p>Rating: {recipe.rating} ⭐ ({recipe.reviews} reviews)</p>
-            <p>{recipe.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-export default App;
+      },
+    ];
+    
+export default recipes;
